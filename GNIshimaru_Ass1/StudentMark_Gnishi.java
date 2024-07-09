@@ -35,8 +35,23 @@ public class StudentMark_Gnishi
                 marks[i] = mark; //store the marks that is correct
             }
         }
+        //starting the variables to compare
+        float largest = marks[0];
+        float smallest = marks [0];
+        // interate to compare all the marks 
+        for (int i = 1; 1 < numberOfStudents; i++){
+            if (marks[i] > largest){
+                largest = marks[i];
+            }
+            if (marks[i] < smallest){
+                smallest = marks[i];
+            }
+        }
         System.out.println("Assignment name: " + name);
         System.out.println("Entered marks: ");
+        System.out.println("Largest mark: " + largest);
+        System.out.println("Smallest mark: " + smallest);
+
         for(int j=0; j<numberOfStudents; j++ ) {
             System.out.println(marks[j]);
         }}}
