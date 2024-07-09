@@ -16,21 +16,26 @@ public class StudentMark_Gnishi
         
        int numberOfStudents = 30;
        float[] marks = new float[numberOfStudents];
-       Scanner scanner = new Scanner(System.in);
-    
+       Scanner scanner = new Scanner(System.in); 
+       
+        System.out.println("Input assignment name");
+        
+        String name = scanner.nextLine();
+        
         System.out.println("Input 30 student marks");
         
         for(int i=0; i< numberOfStudents; i++) {
-            float mark = scanner.nextFloat();
+            float mark = scanner.nextFloat(); //reads the data introduced
             
             //marks[i] = scanner.nextFloat();
             if (mark < 0 || mark > 30){
-                System.out.println("Invalid marks, please enter again");
-                i--;
+                System.out.println("Invalid marks, 0 < mark < 30, please enter again");
+                i--; //decrease 1 to go back to the same mark
             } else {
                 marks[i] = mark; //store the marks that is correct
             }
         }
+        System.out.println("Assignment name: " + name);
         System.out.println("Entered marks: ");
         for(int j=0; j<numberOfStudents; j++ ) {
             System.out.println(marks[j]);
