@@ -54,5 +54,23 @@ public class StudentMark_Gnishi
         System.out.println("Smallest mark: " + smallest);
         for(int j=0; j<numberOfStudents; j++ ) {
             System.out.println(marks[j]);
-        }}}
+        }
+    
+         //mean = sum of all marks / total number of marks
+         float total = 0 ;
+         
+         for (int i=0; 1>numberOfStudents; 1++){
+             total = total + mark[i];
+        }
+    
+        float mean = total / numberOfStudents;
+    
+    
+    
+    
+    
+    }}
+        
+       
+        
 
