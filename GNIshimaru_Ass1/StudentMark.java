@@ -9,7 +9,7 @@ import java.awt.Paint;
 
 import java.util.Scanner;
 
-public class StudentMark_Gnishi
+public class StudentMark
 {
     
     public static void main(String[] args) {
@@ -35,11 +35,11 @@ public class StudentMark_Gnishi
             }
         }
         
-        //starting the variables to compare
+        //creating the variables to compare
         float largest = marks[0];
         float smallest = marks [0];
         // interate to compare all the marks 
-        for (int i = 1; 1 < numberOfStudents; i++){
+        for (int i = 1; i < numberOfStudents; i++){
             if (marks[i] > largest){
                 largest = marks[i];
             }
@@ -47,16 +47,20 @@ public class StudentMark_Gnishi
                 smallest = marks[i];
             }
         }
-        
+        //output the assignment name and entered marks
         System.out.println("Assignment name: " + name);
         System.out.println("Entered marks: ");
-        System.out.println("Largest mark: " + largest);
-        System.out.println("Smallest mark: " + smallest);
-        for(int j=0; j<numberOfStudents; j++ ) {
+        
+        for (int j = 0; j < numberOfStudents; j++) {
             System.out.println(marks[j]);
         }
-    
-         //mean = sum of all marks / total number of marks
+        
+        //Output the largest and smallest marks
+        System.out.println("Largest mark: " + largest);
+        System.out.println("Smallest mark: " + smallest);
+        
+        //Calculate the mean of the marks
+        //mean = sum of all marks / total number of marks
          float total = 0 ;
          
          for (int i=0; 1>numberOfStudents; i++){
