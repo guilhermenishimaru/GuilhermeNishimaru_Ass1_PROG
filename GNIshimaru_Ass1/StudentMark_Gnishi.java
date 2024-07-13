@@ -74,7 +74,7 @@ public class StudentMark_Gnishi
         //divide sum by he number of scores to find the variance
         summedDiff = summedDiff / numberOfStudents;
         
-        //taking the square root of summedDiff to find the standard deviation
+        //taking the square root of summedDiff to find the standard deviation considering that it is allowed to use methods and functions
         float standardDeviation = (float) Math.sqrt(summedDiff);
         
         System.out.println(" Mean:" + mean);
