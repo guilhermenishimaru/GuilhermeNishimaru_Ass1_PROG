@@ -59,17 +59,32 @@ public class StudentMark_Gnishi
          //mean = sum of all marks / total number of marks
          float total = 0 ;
          
-         for (int i=0; 1>numberOfStudents; 1++){
-             total = total + mark[i];
+         for (int i=0; 1>numberOfStudents; i++){
+             total = total + marks[i];
         }
     
         float mean = total / numberOfStudents;
     
+        float summedDiff = 0;
+        
+        for (int i=0; i < numberOfStudents; i++) {
+            //substracting the mean from each score, square each deviation and adding the squared deviations
+            summedDiff = summedDiff + (marks[i] - mean)*(marks[i] - mean); 
+        }
+        //divide sum by he number of scores to find the variance
+        summedDiff = summedDiff / numberOfStudents;
+        
+        //taking the square root of summedDiff to find the standard deviation
+        float standardDeviation = (float) Math.sqrt(summedDiff);
+        
+        System.out.println(" Mean:" + mean);
+        System.out.println(" Standard Deviation:" + standardDeviation);
+        
+        
     
     
-    
-    
-    }}
+    }
+}
         
        
         
