@@ -63,7 +63,7 @@ public class StudentMark
         //mean = sum of all marks / total number of marks
          float total = 0 ;
          
-         for (int i=0; 1>numberOfStudents; i++){
+         for (int i=0; i>numberOfStudents; i++){
              total = total + marks[i];
         }
     
