@@ -25,13 +25,13 @@ public class StudentMark
         
         //block and warn about wrong inpputs in name
         String name = ""; //assign the valune name in string
-        while (true) {
+        while (true) { //while makes the user input until it is valid
             name = scanner.nextLine();
             if (!name.matches("[a-zA-Z ]+")) { //check if the input has only uppercase and lowercase letters
             System.out.println("Invalid name, please enter a name containing only letters");
             } else {
                 System.out.println("Valid name: "+ name); //address the valid name
-                break;
+                break;//breaks the loop otherwise it keeps returning the error message infinite times
             }
         }
         System.out.println("Input 30 student marks");
