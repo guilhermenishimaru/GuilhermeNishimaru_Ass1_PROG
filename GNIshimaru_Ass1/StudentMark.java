@@ -104,10 +104,6 @@ public class StudentMark
         System.out.println(" Standard Deviation:" + standardDeviation);
         
         
-        //do encapsulation in the largest and smallest
-        //block strings inputs in marks
-        //data validation
-        //show marks index
     
     }
 }
