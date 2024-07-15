@@ -1,3 +1,4 @@
+
 import java.awt.Paint;
 
 /**
@@ -37,7 +38,7 @@ public class StudentMark
         
         //creating the variables to compare
         float largest = marks[0];
-        float smallest = marks [0];
+        float smallest = marks[0];
         // interate to compare all the marks 
         for (int i = 1; i < numberOfStudents; i++){
             if (marks[i] > largest){
@@ -66,26 +67,29 @@ public class StudentMark
          for (int i=0; i<numberOfStudents; i++){
              total += marks[i];
         }
+        //using double instead of float to allow more decimal numbers
+        double mean = total / numberOfStudents;
     
-        float mean = total / numberOfStudents;
-    
-        float summedDiff = 0;
+        double variance = 0;
         
         for (int i=0; i < numberOfStudents; i++) {
             //substracting the mean from each score, square each deviation and adding the squared deviations
-            summedDiff = summedDiff + (marks[i] - mean)*(marks[i] - mean); 
+            variance += (marks[i] - mean)*(marks[i] - mean); 
         }
         //divide sum by he number of scores to find the variance
-        summedDiff = summedDiff / numberOfStudents;
+        variance = variance / numberOfStudents;
         
         //taking the square root of summedDiff to find the standard deviation considering that it is allowed to use methods and functions
-        float standardDeviation = (float) Math.sqrt(summedDiff);
+        double standardDeviation = (double) Math.sqrt(variance);
         
         System.out.println(" Mean:" + mean);
         System.out.println(" Standard Deviation:" + standardDeviation);
         
-        
-    
+        //block and warn about wrong inpputs in name
+        //do encapsulation in the largest and smallest
+        //block strings inputs in marks
+        //data validation
+        //show marks index
     
     }
 }
