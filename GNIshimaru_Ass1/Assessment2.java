@@ -9,7 +9,7 @@ public class Assessment2
        
        System.out.print("Enter the path to the file: ");
        String filePath = consoleScanner.nextLine(); //read the path inputed
-       
+       int NumberOfStudents = 0; //create the variable to count the number of students
    try {
         File file = new File("C:\\students_grade.txt");   //show the path to the file
         Scanner myScanner = new Scanner(file);  //create scanner object to read the file
@@ -23,10 +23,14 @@ public class Assessment2
         //Read and print the rest
         while (myScanner.hasNextLine()) {              //read the file line by line
             String line = myScanner.nextLine();
+            NumberOfStudents++;  //count by adding one unit for each line scanned
             String[] parts = line.split("//");         //separate the cooments after "//" 
             StringBuilder cleanedLine = new StringBuilder(parts[0].trim());  //stringbuilder allows to modify the same object without creating new ones and trim removes any write spaces
-            System.out.println(line);
+            //for (int i=0; i<NumberOfStudents; i++);
+            
+            //System.out.println(line);
         }
+        //Separate the students grades
         myScanner.close();                       //close the scanner
    }
    catch (FileNotFoundException e) {
