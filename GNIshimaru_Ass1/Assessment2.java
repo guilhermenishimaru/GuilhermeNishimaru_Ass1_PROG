@@ -24,9 +24,17 @@ public class Assessment2
         while (myScanner.hasNextLine()) {              //read the file line by line
             String line = myScanner.nextLine();
             NumberOfStudents++;  //count by adding one unit for each line scanned
+            
+                        
             String[] parts = line.split("//");         //separate the cooments after "//" 
             StringBuilder cleanedLine = new StringBuilder(parts[0].trim());  //stringbuilder allows to modify the same object without creating new ones and trim removes any write spaces
+            String[] Parts = cleanedLine.toString().split(",");
+            int totalMark = 0;
+            for (int i = Parts.length - 3; i < Parts.length; i++) {
+                totalMark += Integer.parseInt(Parts[i].trim());
+            }
             //for (int i=0; i<NumberOfStudents; i++);
+            
             
             //System.out.println(line);
         }
