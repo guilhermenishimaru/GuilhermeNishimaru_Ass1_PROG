@@ -17,9 +17,16 @@ public class Assessment2
         Scanner myScanner = new Scanner(file);  //create scanner object to read the file
         
         //print header: unit name
-        if (myScanner.hasNextLine()) {
-            String header = myScanner .nextLine();
-            System.out.println(header);
+        // if (myScanner.hasNextLine()) {
+            // String header = myScanner .nextLine();
+            // System.out.println(header);
+        int lineCount = 0;
+        StringBuilder headerLines = new StringBuilder();
+        while (myScanner.hasNextLine() && lineCount < 3) {
+            String line = myScanner.nextLine();
+            headerLines.append(line).append("\n");
+            lineCount++;
+        
         }
         
         StringBuilder finalLines = new StringBuilder();
@@ -34,12 +41,18 @@ public class Assessment2
             StringBuilder cleanedLine = new StringBuilder(parts[0].trim());  //stringbuilder allows to modify the same object without creating new ones and trim removes any write spaces
             
             //Calculating total marks
-            String[] Parts = cleanedLine.toString().split(",");
+            String[] Parts = cleanedLine.toString().split("\\s+");
             int totalMark = 0;
-            for (int i = Parts.length - 3; i < Parts.length; i++) {
-                totalMark += Integer.parseInt(Parts[i].trim());
+            if (Parts.length >= 3) {
+                for (int i = Parts.length - 3; i < Parts.length; i++) {
+                    totalMark += Double.parseDouble(Parts[i].trim());
             }
-            
+        } else {
+            //show when there are no sufficient marks written
+            System.out.println("Not enough marks available" + line);
+            cleanedLine.append("Error");
+        }
+        
             //adding the total marks at the end of each line
             cleanedLine.append("Total Mark: ").append(totalMark);
             finalLines.append(cleanedLine.toString().trim()).append("\n");
