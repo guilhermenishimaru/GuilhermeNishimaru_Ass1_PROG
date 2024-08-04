@@ -10,7 +10,9 @@ public class Assessment2
        System.out.print("Enter the path to the file: ");
        String filePath = consoleScanner.nextLine(); //read the path inputed
        
-       int NumberOfStudents = 0; //create the variable to count the number of students
+       final int maxStudents = 100; //define the maximun number of students
+       String[] studentDetails = new String[maxStudents];
+       int numberOfStudents = 0; //create the variable to count the number of students
        
    try {
         File file = new File(filePath);   //show the path to the file
@@ -22,14 +24,13 @@ public class Assessment2
             String headerLine = myScanner.nextLine();
             header.append(headerLine).append("\n");
             System.out.println(headerLine);
-            }
-            
+        }  
         StringBuilder finalLines = new StringBuilder();
 
         //Reads, calculates and print the marks with the total marks included
         while (myScanner.hasNextLine()) {              //read the file line by line
             String line = myScanner.nextLine();
-            NumberOfStudents++;  //count by adding one unit for each line scanned
+            numberOfStudents++;  //count by adding one unit for each line scanned
             
             //Remove all the comments
             String[] parts = line.split("//");         //separate the cooments after "//" 
@@ -53,12 +54,26 @@ public class Assessment2
             }
         
             //adding the total marks at the end of each line
-            cleanedLine.append(" Total Mark: ").append(totalMark);
+            cleanedLine.append("      Total Mark: ").append(totalMark);
             finalLines.append(cleanedLine.toString().trim()).append("\n");
+            studentDetails[numberOfStudents - 1] = cleanedLine.toString().trim(); //store the total mark to use later
         }
         
         System.out.println(finalLines.toString());
-    
+        
+        //Input cut-off mark
+        System.out.print("Enter the cut-off mark: ");
+        double cutOffMark = consoleScanner.nextInt();
+        
+        System.out.println("\nStudents with total marks below the cut-off mark:");
+        for (int i = 0; i < numberOfStudents; i++) {
+            String[] details = studentDetails[i].split("\\s+");
+            double totalMark = Double.parseDouble(details[details.length - 1]);
+            if (totalMark < cutOffMark) {
+                System.out.println(studentDetails[i]);
+            }
+        }
+        
         //Separate the students grades
         myScanner.close();                       //close the scanner
    } catch (FileNotFoundException e) {
