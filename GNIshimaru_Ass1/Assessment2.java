@@ -13,7 +13,7 @@ public class Assessment2
        int NumberOfStudents = 0; //create the variable to count the number of students
        
    try {
-        File file = new File("C:\\students_grade.txt");   //show the path to the file
+        File file = new File(filePath);   //show the path to the file
         Scanner myScanner = new Scanner(file);  //create scanner object to read the file
         
         //print header; unit name;
@@ -37,7 +37,7 @@ public class Assessment2
             
             //Calculating total marks
             String[] Parts = cleanedLine.toString().split("\\s+");
-            int totalMark = 0;
+            double totalMark = 0;
             if (Parts.length >= 3) {
                 try {
                     for (int i = Parts.length - 3; i < Parts.length; i++) {
