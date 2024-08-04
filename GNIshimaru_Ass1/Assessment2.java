@@ -25,7 +25,7 @@ public class Assessment2
             }
             
         StringBuilder finalLines = new StringBuilder();
-        
+
         //Reads, calculates and print the marks with the total marks included
         while (myScanner.hasNextLine()) {              //read the file line by line
             String line = myScanner.nextLine();
