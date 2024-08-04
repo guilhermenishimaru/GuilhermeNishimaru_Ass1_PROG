@@ -16,19 +16,14 @@ public class Assessment2
         File file = new File("C:\\students_grade.txt");   //show the path to the file
         Scanner myScanner = new Scanner(file);  //create scanner object to read the file
         
-        //print header: unit name
-        // if (myScanner.hasNextLine()) {
-            // String header = myScanner .nextLine();
-            // System.out.println(header);
-        int lineCount = 0;
-        StringBuilder headerLines = new StringBuilder();
-        while (myScanner.hasNextLine() && lineCount < 3) {
-            String line = myScanner.nextLine();
-            headerLines.append(line).append("\n");
-            lineCount++;
-        
-        }
-        
+        //print header; unit name;
+        StringBuilder header = new StringBuilder();
+        for (int i = 0; i < 3 && myScanner.hasNextLine(); i++) {
+            String headerLine = myScanner.nextLine();
+            header.append(headerLine).append("\n");
+            System.out.println(headerLine);
+            }
+            
         StringBuilder finalLines = new StringBuilder();
         
         //Reads, calculates and print the marks with the total marks included
@@ -44,17 +39,21 @@ public class Assessment2
             String[] Parts = cleanedLine.toString().split("\\s+");
             int totalMark = 0;
             if (Parts.length >= 3) {
-                for (int i = Parts.length - 3; i < Parts.length; i++) {
-                    totalMark += Double.parseDouble(Parts[i].trim());
-            }
-        } else {
+                try {
+                    for (int i = Parts.length - 3; i < Parts.length; i++) {
+                        totalMark += Double.parseDouble(Parts[i].trim());
+                    }
+                } catch (NumberFormatException e) {
+                    System.out.println("Error in " + line);
+                }
+            } else {
             //show when there are no sufficient marks written
             System.out.println("Not enough marks available" + line);
             cleanedLine.append("Error");
-        }
+            }
         
             //adding the total marks at the end of each line
-            cleanedLine.append("Total Mark: ").append(totalMark);
+            cleanedLine.append(" Total Mark: ").append(totalMark);
             finalLines.append(cleanedLine.toString().trim()).append("\n");
         }
         
