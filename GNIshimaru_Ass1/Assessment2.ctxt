@@ -2,4 +2,6 @@
 comment0.target=Assessment2
 comment1.params=args
 comment1.target=void\ main(java.lang.String[])
-numComments=2
+comment2.params=studentDetails\ totalMarks\ numberOfStudents\ highest
+comment2.target=void\ printTop5Marks(java.lang.String[],\ double[],\ int,\ boolean)
+numComments=3
